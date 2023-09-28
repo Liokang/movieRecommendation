@@ -1,0 +1,77 @@
+<%- include('boilerplate/header') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    .movie-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .movie-card {
+        position: relative;
+        width: 200px;
+        margin: 20px;
+        background-color: #333;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .movie-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .movie-summary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-card:hover .movie-summary {
+        display: flex;
+    }
+
+    .movie-title {
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+<div class="movie-container">
+    <!-- Sample movie cards (replace with your data) -->
+        <% for (var i = 0; i < titles.length; i++) { %>
+    <div class="movie-card">
+        <img src="<%= images[i] %>" alt="Movie 1">
+        <div class="movie-summary">
+            <p><%= summaries[i] %></p>
+        </div>
+        <div class="movie-title"><%= titles[i] %></div>
+    </div>
+        <% } %>
+    <!-- Add more movie cards as needed -->
+</div>
+
+
+
+
+<%- include('boilerplate/footer') %>

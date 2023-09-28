@@ -1,0 +1,124 @@
+<%- include('boilerplate/header') %>
+
+
+  <!-- <form class="" action="/recommendation" method="post">
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title"></h4>
+                      <form>
+                          <div class="form-group">
+                              <label for="input1">First Movie Name:</label>
+                              <input type="text" class="form-control" id="input1" name="firstMovie" placeholder="First Movie">
+                          </div>
+                          <div class="form-group">
+                              <label for="input2">Second Movie Name:</label>
+                              <input type="text" class="form-control" id="input2" name="secondMovie" placeholder="Second Movie">
+                          </div>
+                          <div class="form-group">
+                              <label for="input3">Third Movie Name:</label>
+                              <input type="text" class="form-control" id="input3" name="thirdMovie" placeholder="Third Movie">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    </form> -->
+
+    <style>
+        /* CSS Styles Go Here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #ff3c57;
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/images/liokang.png" alt="liokang Logo">
+        </div>
+        <div class="content">
+            <h1>Add Movies Name</h1>
+            <form id="signin-form" action="/recommendation" method="post">
+              <div class="form-group">
+                  <label for="input1">First Movie Name:</label>
+                  <input type="text" class="form-control" id="input1" name="firstMovie" placeholder="First Movie">
+              </div>
+              <div class="form-group">
+                  <label for="input2">Second Movie Name:</label>
+                  <input type="text" class="form-control" id="input2" name="secondMovie" placeholder="Second Movie">
+              </div>
+              <div class="form-group">
+                  <label for="input3">Third Movie Name:</label>
+                  <input type="text" class="form-control" id="input3" name="thirdMovie" placeholder="Third Movie">
+              </div>
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+
+<%- include('boilerplate/footer') %>

@@ -1,0 +1,175 @@
+<%- include('boilerplate/header') %>
+
+
+<p style="color:white;"><%= recommendationLists[i] %></p>
+<style>
+    /* CSS Styles Go Here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .movie-row {
+        margin-bottom: 30px;
+    }
+
+    .movie-container {
+        display: flex;
+        overflow-x: hidden; /* Remove horizontal scrollbar and hide overflow */
+        padding: 10px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #444 #111;
+    }
+
+    .movie-card {
+       flex: 0 0 auto;
+       margin-right: 20px;
+       width: 200px;
+       padding-left: 10px; /* Add left padding */
+   }
+   .movie-origin {
+        margin-right: 20px;
+        margin-left: 20px; /* Add left margin */
+    }
+    .movie-scroll{
+      margin-right: 20px;
+      margin-left: 20px; /* Add left margin */
+    }
+
+
+    .movie-card img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    .slider-button {
+        background-color: #e50914;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .slider-button.prev {
+        margin-right: 10px;
+    }
+
+    .slider-button:hover {
+        background-color: #ff3c57;
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/images/liokang.png" alt="Netflix Logo">
+    </div>
+</header>
+<main>
+    <section class="movie-row">
+        <h2 class="movie-origin"><%=global1s%></h2>
+        <div class="movie-container">
+          <% for (var i = 0; i < 10; i++) { %>
+          <div class="movie-card pl-4">
+              <img src="<%=recommendationImages[i]%>" alt="Movie 1">
+              <div class="movie-title"><%= recommendationLists[i] %></div>
+          </div>
+          <% } %>
+        </div>
+        <div class="movie-scroll">
+        <button class="slider-button prev">Previous</button>
+        <button class="slider-button next">Next</button>
+        </div>
+    </section>
+    <section class="movie-row">
+        <h2 class="movie-origin"><%=global2s%></h2>
+        <div class="movie-container">
+          <% for (var i = 10; i < 20; i++) { %>
+          <div class="movie-card">
+              <img src="<%=recommendationImages[i]%>" alt="Movie 1">
+              <div class="movie-title"><%= recommendationLists[i] %></div>
+          </div>
+          <% } %>
+        </div>
+        <div class="movie-scroll">
+        <button class="slider-button prev">Previous</button>
+        <button class="slider-button next">Next</button>
+        </div>
+    </section>
+    <section class="movie-row">
+        <h2 class="movie-origin"><%=global3s%></h2>
+        <div class="movie-container">
+          <% for (var i = 20; i < 30; i++) { %>
+          <div class="movie-card">
+              <img src="<%=recommendationImages[i]%>" alt="Movie 1">
+              <div class="movie-title"><%= recommendationLists[i] %></div>
+          </div>
+          <% } %>
+        </div>
+        <div class="movie-scroll">
+        <button class="slider-button prev">Previous</button>
+        <button class="slider-button next">Next</button>
+        </div>
+    </section>
+    <!-- More movie rows go here -->
+</main>
+<script>
+    // JavaScript Code Goes Here
+    const movieContainers = document.querySelectorAll(".movie-container");
+    const nextButtons = document.querySelectorAll(".next");
+    const prevButtons = document.querySelectorAll(".prev");
+
+    nextButtons.forEach((nextButton, index) => {
+        let scrollPosition = 0;
+        const scrollWidth = movieContainers[index].scrollWidth;
+
+        nextButton.addEventListener("click", () => {
+            scrollPosition += 200;
+            if (scrollPosition > scrollWidth - movieContainers[index].offsetWidth) {
+                scrollPosition = scrollWidth - movieContainers[index].offsetWidth;
+            }
+            movieContainers[index].scroll({
+                left: scrollPosition,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    prevButtons.forEach((prevButton, index) => {
+        let scrollPosition = 0;
+        prevButton.addEventListener("click", () => {
+            scrollPosition -= 200;
+            if (scrollPosition < 0) {
+                scrollPosition = 0;
+            }
+            movieContainers[index].scroll({
+                left: scrollPosition,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
+
+
+<%- include('boilerplate/footer') %>
